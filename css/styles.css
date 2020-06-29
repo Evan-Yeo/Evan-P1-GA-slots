@@ -10,13 +10,175 @@ body {
     /* vh = view height*/
 }
 
+#game {
+    width: calc(100vw / 2);
+    height: auto;
+    border: 7px #48BB78 double;
+    border-radius: .6rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#game #header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px #4A5568 double; */
+    /* border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem; */
+    background-color: #48BB78;
+}
+
+#game #header h1 {
+    color: #22543D;
+    font-style: oblique;
+    font-family: sans-serif;
+}
+
+#game #reel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    /* border: 1px #222 solid; */
+    border-top: 0;
+    /* background-color: #718096; */
+}
+
+#game #reel .reel-column {
+    min-height: 300px;
+    flex: 1;
+    border: 7px #A0AEC0 double;
+    margin-right: 20px;
+    max-height: 300px;
+    /* outline: 1px #222 solid; */
+    border-radius: .5rem;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 18px 0px rgba(0, 0, 0, 0.65);
+    overflow-y: hidden;
+}
+
+#game #reel .reel-column .reel-spin-container {
+    top: 0;
+    position: relative;
+    box-sizing: border-box;
+    margin: 100px 0;
+}
+
+#game #reel .reel-column.spinning .reel-spin-container {
+    animation: spin .5s linear infinite;
+}
+
+/**
+ * spin speed
+ */
+#game #reel .reel-column:last-child {
+    margin-right: 0;
+}
+
+#game #reel .reel-column .slot-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+}
+
+#game #reel .reel-column .slot-tile .slit-tile-img {
+    z-index: 0;
+}
+
+#game #control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 1rem;
+}
+
+#game #control-panel .display-panel,
+#game #control-panel .actions-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#game #control-panel .display-panel .credit-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48%;
+    height: 80px;
+    border: 5px #222 double;
+    border-radius: .6rem;
+    background-color: #ddd;
+    color: #38A169;
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: 10px;
+    font-family: monospace;
+}
+
+#game #control-panel .display-panel .credit-container.player-balance-display::before {
+    content: "Players Balance";
+    font-size: .75rem;
+    letter-spacing: 0;
+    position: absolute;
+    bottom: 4px;
+    color: #000;
+}
+
+#game #control-panel .actions-panel .action-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 30%;
+    padding: 1rem;
+    border: 2px #222 solid;
+    border-radius: .6rem;
+    background-color: #ddd;
+    color: #222;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: monospace;
+    box-shadow: inset 0px 0px 18px 0px rgba(0, 0, 0, 0.35);
+    margin: .5rem 0;
+    outline: none !important;
+}
+
+#game #control-panel .actions-panel .action-button:hover {
+    border-color: green;
+    background-color: #eee;
+}
+
+/**
+ * animate spin marquee
+ */
+@keyframes spin {
+    0% {
+        top: 0em
+    }
+
+    100% {
+        top: -800px
+    }
+}
+
+
+
 .top-header {
-    text-align: center;
+    /* text-align: center; */
+    margin: 0px 200px 0px 0px;
 }
 
 .main-display {
     border: 5px solid black;
-    height: 500px;
+    height: 600px;
     width: 900px;
 }
 
@@ -24,20 +186,23 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 50px 0px 0px 0px;
+
 
 }
 
-/* .reset-btn {
-    float: left;
+.reset-btn {
+    margin: 0px 0px 0px 15px;
 }
 
+/* 
 .game-message {
     text-align: center;
-}
+} */
 
 .options-btn {
-    float: right;
-} */
+    margin: 0px 40px 0px 0px;
+}
 
 #game-reel {
     display: flex;
@@ -59,4 +224,22 @@ body {
     flex: 0 0 32%;
     border: 2px solid black;
     height: 98px;
+}
+
+#game-bottom-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 50px;
+}
+
+#bet-size {
+    margin-left: 10px;
+}
+
+#roll-reels {
+    width: 75px;
+    height: 25px;
+    margin: 15px 0 0 255px;
 }
