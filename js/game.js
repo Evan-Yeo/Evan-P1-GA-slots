@@ -1,15 +1,22 @@
 const mainDisplay = document.querySelector(".main-display");
 
 
-const gameBoard = document.createElement('div');
-gameBoard.id = 'game-board';
-//append gameBoard to body
-mainDisplay.appendChild(gameBoard);
+const gameReel = document.createElement('div');
+gameReel.id = 'game-reel';
+//append gameReel to mainDisplay
+mainDisplay.appendChild(gameReel);
 
-for (let index = 0; index < 9; index++) {
+
+
+
+
+
+for (let index = 0; index < 9; ++index) {
+    let thirdTile = index % 3 === 0;
+    console.log(index, thirdTile);
     let gameTile = document.createElement('div');
     gameTile.classList.add('game-tile', `game-tile-${index}`);
-    gameBoard.appendChild(gameTile);
+    gameReel.appendChild(gameTile);
     console.log(gameTile);
 }
 
@@ -21,13 +28,23 @@ const checkWinner = () => {
 }
 
 
+// // Main game
+// class slotGame {
 
+//     winnings;
+//     balance;
+//     constructor()
+// }
 
-class slotGame {
-    constructor(status, balance, bet) {
-        //status game start, Ends
-        this.status = status;
-        this.balance = 1000;
-        this.bet = 10;
-    }
-}
+// // Player
+// class player {
+//     startGame;
+//     endGame; 
+//     constructor()
+
+// }
+
+// Turns of the game
+// class turns {
+//     constructor()
+// }

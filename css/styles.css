@@ -17,25 +17,37 @@ body {
 .main-display {
     border: 5px solid black;
     height: 500px;
-    width: 700px;
+    width: 900px;
 }
 
-.reset-btn {
+#game-top-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+/* .reset-btn {
     float: left;
+}
+
+.game-message {
+    text-align: center;
 }
 
 .options-btn {
     float: right;
-}
+} */
 
-#game-board {
-    float: center;
+#game-reel {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     border: 5px solid black;
     height: 300px;
     width: 300px;
+    margin: auto;
+    margin-top: 50px;
 }
 
 .game-tile {
