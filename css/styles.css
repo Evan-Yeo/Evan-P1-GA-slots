@@ -1,0 +1,50 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* vh = view height*/
+}
+
+.top-header {
+    text-align: center;
+}
+
+.main-display {
+    border: 5px solid black;
+    height: 500px;
+    width: 700px;
+}
+
+.reset-btn {
+    float: left;
+}
+
+.options-btn {
+    float: right;
+}
+
+#game-board {
+    float: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 5px solid black;
+    height: 300px;
+    width: 300px;
+}
+
+.game-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    flex: 0 0 32%;
+    border: 2px solid black;
+    height: 98px;
+}
