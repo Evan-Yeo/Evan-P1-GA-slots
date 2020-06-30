@@ -56,17 +56,36 @@ body {
     background-color: #fff;
     box-shadow: inset 0px 0px 18px 0px rgba(0, 0, 0, 0.65);
     overflow-y: hidden;
+    transform: translate3d(0, 0, 0);
 }
 
 #game #reel .reel-column .reel-spin-container {
-    top: 0;
     position: relative;
+    top: 0;
     box-sizing: border-box;
     margin: 100px 0;
+    transform: translate3d(0, 0, 0);
+    transition: opacity .5s ease-out;
 }
 
 #game #reel .reel-column.spinning .reel-spin-container {
-    animation: spin .5s linear infinite;
+    animation: moveSpinReel .5s linear infinite;
+}
+
+@keyframes moveSpinReel {
+    0% {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+
+    90% {
+        opacity: .7;
+    }
+
+    100% {
+        transform: translateY(-110%);
+        opacity: 0;
+    }
 }
 
 /**
@@ -77,6 +96,9 @@ body {
 }
 
 #game #reel .reel-column .slot-tile {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,7 +133,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 48%;
+    flex: 0 0 30%;
     height: 80px;
     border: 5px #222 double;
     border-radius: .6rem;
@@ -130,6 +152,28 @@ body {
     position: absolute;
     bottom: 4px;
     color: #000;
+}
+
+#game #control-panel .display-panel .credit-container.current-bet-size::before {
+    content: "Bet Size";
+    font-size: .75rem;
+    letter-spacing: 0;
+    position: absolute;
+    bottom: 4px;
+    color: #000;
+}
+
+#game #control-panel .display-panel .credit-container.payout-display::before {
+    content: "Winner Paid";
+    font-size: .75rem;
+    letter-spacing: 0;
+    position: absolute;
+    bottom: 4px;
+    color: #000;
+}
+
+#game #control-panel .display-panel .credit-container>span {
+    margin-top: -.75rem;
 }
 
 #game #control-panel .actions-panel .action-button {
@@ -156,90 +200,20 @@ body {
     background-color: #eee;
 }
 
-/**
- * animate spin marquee
- */
-@keyframes spin {
-    0% {
-        top: 0em
-    }
-
-    100% {
-        top: -800px
-    }
-}
-
-
-
-.top-header {
-    /* text-align: center; */
-    margin: 0px 200px 0px 0px;
-}
-
-.main-display {
-    border: 5px solid black;
-    height: 600px;
-    width: 900px;
-}
-
-#game-top-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 50px 0px 0px 0px;
-
-
-}
-
-.reset-btn {
-    margin: 0px 0px 0px 15px;
-}
-
-/* 
-.game-message {
-    text-align: center;
-} */
-
-.options-btn {
-    margin: 0px 40px 0px 0px;
-}
-
-#game-reel {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border: 5px solid black;
-    height: 300px;
-    width: 300px;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.game-tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 600;
-    flex: 0 0 32%;
-    border: 2px solid black;
-    height: 98px;
-}
-
-#game-bottom-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#game .payline {
     position: absolute;
-    bottom: 50px;
+    top: 50%;
+    width: 60%;
+    background-color: red;
+    height: 5px;
+    margin-top: -40px;
+    margin-left: -120px;
 }
 
-#bet-size {
-    margin-left: 10px;
-}
-
-#roll-reels {
-    width: 75px;
-    height: 25px;
-    margin: 15px 0 0 255px;
+#game .payline::before {
+    content: "Payline";
+    top: 0;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: red;
 }
