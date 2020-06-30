@@ -510,13 +510,5 @@ class Game {
 const game = new Game({
     title: 'GA Slots'
 });
-game.render();
 
-const testSpin = () => {
-    const firstReelContainer = document.querySelector('.reel-column:first-child');
-    if (firstReelContainer.classList.contains('spinning')) {
-        firstReelContainer.classList.remove('spinning');
-    } else {
-        firstReelContainer.classList.add('spinning');
-    }
-}
+game.render();
